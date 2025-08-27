@@ -2,8 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose, { mongo } from "mongoose";
 import authRoute from "./routes/auth.js";
-import roomsRoute from "./routes/hotel.js";
-import hotelRoute from "./routes/rooms.js";
+import hotelRoute from "./routes/hotel.js";
+import roomsRoute from "./routes/rooms.js";
 import userRoute from "./routes/users.js";
 
 const app = express();
@@ -28,6 +28,7 @@ const connect = async () => {
 };
 
 //Middlewares
+app.use(express.json());
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
 app.use("/hotel", hotelRoute);
