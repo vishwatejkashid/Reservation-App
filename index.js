@@ -34,11 +34,17 @@ app.use("/user", userRoute);
 app.use("/hotel", hotelRoute);
 app.use("/rooms", roomsRoute);
 
+app.use((err ,req , res , next)=>{
+  const status = err.status || 500 ; 
+  const message = err.message ;
+  return res.status(status).json({
+    success : false,
+    errMessage : message,
+    stack : err.stack
+  })
+})
 app.listen(8080, () => {
   connect();
   console.log("Connect to backend.");
 });
 
-app.get("/auth",(req,res)=>{
-    res.send("Auth file");
-})
