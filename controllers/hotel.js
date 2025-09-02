@@ -1,6 +1,6 @@
 import Hotel from "../models/Hotel.js"
 
-export const createRoute = async(req , res , next) =>{
+export const createHotel = async(req , res , next) =>{
     const newHotel = new Hotel(req.body) ;
         try{
             const savedHotel = await newHotel.save();
@@ -10,7 +10,7 @@ export const createRoute = async(req , res , next) =>{
         }
 }
 
-export const updateRoute = async(req , res , next)=>{
+export const updateHotel= async(req , res , next)=>{
     try{
         const updatedHotel = await Hotel.findByIdAndUpdate(req.params.id , {$set : req.body} , {new: true});
         res.status(200).json(updatedHotel);
@@ -19,7 +19,7 @@ export const updateRoute = async(req , res , next)=>{
     }
 } 
 
-export const deleteRoute = async(req , res , next)=>{
+export const deleteHotel = async(req , res , next)=>{
     try{
         await Hotel.findByIdAndDelete(req.params.id);
         res.status(200).json("Hotel is Deleted");
@@ -28,7 +28,7 @@ export const deleteRoute = async(req , res , next)=>{
     }
 }
 
-export const getRoute = async(req, res , next)=>{
+export const getHotel = async(req, res , next)=>{
     try{
        const hotel = await Hotel.findById(req.params.id);
        res.status(200).json(hotel);
@@ -37,7 +37,7 @@ export const getRoute = async(req, res , next)=>{
     }
 }
 
-export const getAllRoute = async(req, res , next)=>{
+export const getAllHotel = async(req, res , next)=>{
     try{
         const hotels = await Hotel.find();
         res.status(200).json(hotels);

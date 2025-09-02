@@ -1,17 +1,17 @@
 import express from "express";
-import {createRoute , updateRoute , deleteRoute , getRoute , getAllRoute } from "../controllers/hotel.js"
+import {createHotel , updateHotel, deleteHotel, getHotel, getAllHotel  } from "../controllers/hotel.js"
 import { validateAdmin } from "../utils/validation.js";
 const router = express();
 
 //Create 
-router.post("/" ,validateAdmin, createRoute )
+router.post("/" ,validateAdmin, createHotel )
 //Update
-router.put("/:id" ,validateAdmin, updateRoute)
+router.put("/:id" ,validateAdmin, updateHotel)
 //Delete
-router.delete("/:id" ,validateAdmin, deleteRoute)
+router.delete("/:id" ,validateAdmin, deleteHotel)
 //Get
-router.get("/:id" , getRoute)
+router.get("/:id" , getHotel)
 //Get All
-router.get("/", getAllRoute)
+router.get("/", getAllHotel)
 
 export default router;

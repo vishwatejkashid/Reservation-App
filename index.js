@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import mongoose, { mongo } from "mongoose";
 import authRoute from "./routes/auth.js";
 import hotelRoute from "./routes/hotel.js";
-import roomsRoute from "./routes/rooms.js";
+import roomsRoute from "./routes/room.js";
 import userRoute from "./routes/user.js";
 import cookieParser from "cookie-parser";
 
